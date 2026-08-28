@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { Produto } from '../../../model/produto';
 import { CardProduto } from "../card-produto/card-produto";
 
@@ -9,6 +9,14 @@ import { CardProduto } from "../card-produto/card-produto";
   styleUrl: './lista-produtos.css',
 })
 export class ListaProdutos {
+  apenasPromo = signal(false);
+
+  produtosExibidos = computed(() =>
+   this.apenasPromo() ? this.produtos.filter(p => p.promo): this.produtos);
+
+  alterarPromo(){
+    this.apenasPromo.update(v => !v)
+  }
 
   produtos = <Produto[]>[
     {
@@ -17,7 +25,8 @@ export class ListaProdutos {
     preco: 39000.00,
     descricao: 'Sai mais barato do que perder a vida',
     imageUrl: 'images/parafal.jpg',
-    promo: false
+    promo: false,
+    estado: 'usado'
   },
     {
     id: 2,
@@ -25,7 +34,8 @@ export class ListaProdutos {
     preco: 17000.00,
     descricao: 'metralhadora alemã ou de israel...',
     imageUrl: 'images/hk.jpg',
-    promo: false
+    promo: false,
+    estado: 'novo'
   },
     {
     id: 3,
@@ -33,8 +43,18 @@ export class ListaProdutos {
     preco: 8200.00,
     descricao: 'Otima para auto defesa.',
     imageUrl: 'images/beretta.jpg',
-    promo: true
+    promo: true,
+    estado: 'esgotado'
   },
+  {
+    id: 4,
+    nome: 'AK-47',
+    preco: 9500.00,
+    descricao: 'fds.',
+    imageUrl: 'images/ak.jpg',
+    promo: false,
+    estado: 'novo'
+  }
 ];
 
 onViewProduct(id: number){

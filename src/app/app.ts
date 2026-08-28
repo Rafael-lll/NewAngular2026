@@ -18,6 +18,8 @@ export class App {
 
   sobre?: string;
 
+  x = signal(10);
+
   receberSobre(texto: string){
     this.sobre = texto;
   }
