@@ -1,13 +1,6 @@
 <app-header [tituloLoja]="'Loja TP1'"
 (textoSobre)="receberSobre($event)"></app-header>
 <main class="container">
-  @if(x() % 2 == 0){
-    <h1> Nobruzera apelaum</h1>
-  } @else {
-        <h1>3 capa tropa</h1>
-  }
-  <app-lista-produtos></app-lista-produtos>
-  <!--<h2>Angular - TP01</h2>-->
-  <!--{{sobre}}-->
+  <router-outlet></router-outlet>
 </main>
 <app-footer></app-footer>
