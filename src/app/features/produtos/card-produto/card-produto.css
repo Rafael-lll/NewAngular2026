@@ -6,7 +6,24 @@
   border: 1px solid #e5e7eb;
   border-radius: 12px;
   background: #fff;
-  height: 180px;
+  height: 100%;             
+  box-sizing: border-box;   
+  align-items: stretch;
+}
+
+.conteudo {
+  display: flex;            
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;             
+}
+
+.acoes {
+  display: flex;
+  gap: 12px;
+  margin-top: auto;         
+  padding-top: 8px;         
+  justify-content: flex-end;
 }
 
 .card.promo {
@@ -22,10 +39,7 @@
   background: #f3f4f6;
 }
 
-.conteudo {
-  display: grid;
-  gap: 8px;
-}
+
 
 .titulo {
   margin: 0;
@@ -72,12 +86,7 @@
   font-size: 0.9rem;
 }
 
-.acoes {
-  display: flex;
-  gap: 12px;
-  margin-top: 8px;
-  justify-content: right;
-}
+
 
 .esgotado {
   padding-top: 10px;
