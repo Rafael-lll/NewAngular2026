@@ -1,3 +1,14 @@
+
+export interface ProdutoAPI {
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+    image: string;
+    category?: string
+}
+
+
 const estados = ['novo', 'usado', 'esgotado'] as const;
 
 
@@ -13,7 +24,7 @@ export interface Produto {
 }
 
 export class ProductMapper {
-    static fromJson(json: any): Produto{
+    static fromJson(json: ProdutoAPI): Produto{
         let _estado = estados[Math.floor(Math.random() * estados.length)]
         return {
             id: json.id,
@@ -26,7 +37,7 @@ export class ProductMapper {
 
         }
     }
-    static toJson(produto: Produto): any {
+    static toJson(produto: Produto): ProdutoAPI {
         return {
             id: produto.id,
             title: produto.nome,
